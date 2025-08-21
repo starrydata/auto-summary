@@ -1,0 +1,351 @@
+<html lang="ja"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thermoelectric Paper JSON → Compact HTML Tables</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --danger: #dc2626;
+      --ok: #16a34a;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    html, body { height: 100%; }
+    body { margin: 0; font: 13px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg); color: var(--text); }
+    header { position: sticky; top: 0; z-index: 20; background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.92));
+      border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 16px; }
+    h1 { font-size: 18px; margin: 0; }
+    .sub { color: var(--muted); font-size: 12px; }
+    .controls { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
+    textarea { width: 100%; min-height: 160px; resize: vertical; box-sizing: border-box;
+      background: #ffffff; color: var(--text); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px; font-family: var(--mono); font-size: 12px; }
+    .btnrow { display: flex; gap: 8px; flex-wrap: wrap; }
+    button { appearance: none; border: 1px solid var(--border); background: #ffffff; color: var(--text);
+      padding: 8px 10px; font-size: 12px; border-radius: 8px; cursor: pointer;
+      transition: transform .02s ease, background .15s ease, border-color .15s ease; }
+    button:hover { background: #f3f4f6; border-color: #d1d5db; }
+    button.primary { border-color: var(--accent); background: var(--accent); color: #ffffff; }
+    button.primary:hover { background: #1d4ed8; }
+    .ghost { background: transparent; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 12px; box-shadow: 0 2px 0 rgba(0,0,0,.2); }
+    .card h2 { margin: 0 0 8px; font-size: 14px; }
+    .meta { color: var(--muted); font-size: 12px; }
+    .table-wrap { overflow: auto; border: 1px solid var(--border); border-radius: 10px; }
+    table { border-collapse: collapse; width: 100%; min-width: 600px; }
+    thead th { position: sticky; top: 0; z-index: 1; background: #f8fafc; color: var(--muted);
+      font-weight: 600; text-align: left; border-bottom: 1px solid var(--border); }
+    th, td { padding: 4px 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:hover { background: #f9fafb; }
+    .compact th, .compact td { padding: 3px 6px; font-size: 12px; }
+    .kvt td:first-child { white-space: nowrap; color: var(--muted); width: 220px; }
+    details { border: 1px dashed var(--border); background: #ffffff; border-radius: 8px; padding: 6px 8px; }
+    details > summary { cursor: pointer; color: var(--accent); outline: none; }
+    .pill { display: inline-block; padding: 2px 6px; border: 1px solid var(--border); border-radius: 999px; font-size: 11px; color: var(--muted); }
+    .ok { color: var(--ok); }
+    .bad { color: var(--danger); }
+    .mono { font-family: var(--mono); }
+    .muted { color: var(--muted); }
+    .footer-note { color: var(--muted); font-size: 11px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Thermoelectric Paper JSON → Compact HTML Tables</h1>
+      <div class="sub">Paste your JSON (grain size in [m]; sintering density normalized with 1 = theoretical).</div>
+      <div class="controls">
+        <textarea id="json-input" placeholder="Paste JSON here..."></textarea>
+        <div class="btnrow">
+          <button class="primary" id="render-btn">Render Tables</button>
+          <button class="ghost" id="load-sample">Load Minimal Sample</button>
+          <button class="ghost" id="download-html">Download Current View</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="output" class="grid"><div class="card"><h2>Paper Metadata</h2><div class="table-wrap"><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody></tbody></table></div></div><div class="card"><h2>Scope Check</h2><div><span class="muted">Unknown (not evaluated)</span></div></div><div class="card"><h2>Figures (0)</h2><div class="table-wrap"><table class="compact"><thead><tr><th>Figure ID</th><th>Subfigure</th><th>Caption Summary</th><th>Graphs (#)</th><th>Graphs — Details</th></tr></thead><tbody></tbody></table></div></div><div class="card"><h2>Samples — Common Info</h2><div class="table-wrap"><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>microstructure</td><td><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody></tbody></table></td></tr><tr><td>synthesis</td><td><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody></tbody></table></td></tr><tr><td>measurement</td><td><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody></tbody></table></td></tr></tbody></table></div></div><div class="card"><h2>Samples (0)</h2><div class="table-wrap"><table class="compact"><thead><tr><th>Sample Name</th><th>Crystal Structure</th><th>Parent Formula</th><th>Parent (molar)</th><th>Composition — start / target / analyzed</th><th>Molar — start / target / analyzed</th><th>Appears In</th><th>Overrides?</th><th>Details</th></tr></thead><tbody></tbody></table></div></div><div class="card"><h2>Provenance</h2><div class="table-wrap"><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>extraction_method</td><td><span>manual</span></td></tr></tbody></table></div></div></div>
+  </main>
+
+  <script>
+    const el = (tag, attrs = {}, children = []) => {
+      const node = document.createElement(tag);
+      for (const [k, v] of Object.entries(attrs)) {
+        if (k === 'class') node.className = v;
+        else if (k === 'html') node.innerHTML = v;
+        else if (k.startsWith('on') && typeof v === 'function') node.addEventListener(k.slice(2), v);
+        else node.setAttribute(k, v);
+      }
+      for (const c of [].concat(children)) if (c !== null && c !== undefined) node.append(c.nodeType ? c : document.createTextNode(String(c)));
+      return node;
+    };
+    const isEmpty = (v) => v === null || v === undefined || (typeof v === 'string' && v.trim() === '') || (Array.isArray(v) && v.length === 0) || (typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length === 0);
+    const safe = (v) => v === null || v === undefined ? '' : v;
+    const fmtNum = (v) => (v === null || v === undefined || v === '') ? '' : (typeof v === 'number' ? v.toString() : v);
+
+    function tableKV(obj, titleMap = {}) {
+      const tbl = el('table', { class: 'compact kvt' });
+      const thead = el('thead', {}, el('tr', {}, [el('th', {}, 'Field'), el('th', {}, 'Value')]));
+      const tbody = el('tbody');
+      tbl.append(thead, tbody);
+      for (const [k, v] of Object.entries(obj || {})) {
+        if (isEmpty(v)) continue;
+        let valueNode;
+        if (Array.isArray(v)) {
+          valueNode = el('div', {}, v.map(x => el('span', { class: 'pill' }, safe(x))));
+        } else if (typeof v === 'object') {
+          valueNode = tableKV(v);
+        } else {
+          valueNode = el('span', {}, String(v));
+        }
+        tbody.append(el('tr', {}, [el('td', {}, titleMap[k] || k), el('td', {}, valueNode)]));
+      }
+      return tbl;
+    }
+
+    function renderMetadata(meta, root) {
+      const card = el('div', { class: 'card' });
+      card.append(el('h2', {}, 'Paper Metadata'));
+      card.append(el('div', { class: 'table-wrap' }, tableKV(meta, {
+        title: 'Title', doi: 'DOI', journal: 'Journal', year: 'Year', authors: 'Authors', url: 'URL', notes: 'Notes'
+      })));
+      root.append(card);
+    }
+
+    function renderBinaryFlag(flag, root) {
+      const card = el('div', { class: 'card' });
+      card.append(el('h2', {}, 'Scope Check'));
+      const msg = flag === true ? el('span', { class: 'ok' }, 'Yes — experimental thermoelectric study with original samples')
+        : flag === false ? el('span', { class: 'bad' }, 'No — not the targeted experimental study')
+        : el('span', { class: 'muted' }, 'Unknown (not evaluated)');
+      card.append(el('div', {}, msg));
+      root.append(card);
+    }
+
+    function axisTable(axes = []) {
+      const tbl = el('table', { class: 'compact mono' });
+      tbl.append(el('thead', {}, el('tr', {}, [
+        el('th', {}, 'Axis'), el('th', {}, 'Quantity'), el('th', {}, 'Unit'), el('th', {}, 'Ref Ticks'), el('th', {}, 'Scale'), el('th', {}, '→ SI Conversion')
+      ])));
+      const tbody = el('tbody'); tbl.append(tbody);
+      for (const ax of axes) {
+        tbody.append(el('tr', {}, [
+          el('td', {}, safe(ax.axis)),
+          el('td', {}, safe(ax.quantity)),
+          el('td', {}, safe(ax.unit)),
+          el('td', {}, Array.isArray(ax.reference_ticks) ? ax.reference_ticks.join(', ') : safe(ax.reference_ticks)),
+          el('td', {}, safe(ax.scale)),
+          el('td', {}, safe(ax.conversion_to_SI))
+        ]));
+      }
+      return el('div', { class: 'table-wrap' }, tbl);
+    }
+
+    function graphDetails(graphs = []) {
+      if (!graphs || graphs.length === 0) return el('span', { class: 'muted' }, '—');
+      const container = el('div');
+      graphs.forEach((g, i) => {
+        const d = el('details', {}, [
+          el('summary', {}, `Graph ${i+1} — axes:${(g.axes||[]).length}`),
+          axisTable(g.axes || []),
+          !isEmpty(g.notes) ? el('div', { class: 'footer-note' }, `notes: ${g.notes}`) : null
+        ]);
+        container.append(d);
+      });
+      return container;
+    }
+
+    function renderFigures(figures = [], root) {
+      const card = el('div', { class: 'card' });
+      card.append(el('h2', {}, `Figures (${figures.length})`));
+      const tbl = el('table', { class: 'compact' });
+      tbl.append(el('thead', {}, el('tr', {}, [
+        el('th', {}, 'Figure ID'),
+        el('th', {}, 'Subfigure'),
+        el('th', {}, 'Caption Summary'),
+        el('th', {}, 'Graphs (#)'),
+        el('th', {}, 'Graphs — Details')
+      ])));
+      const tbody = el('tbody'); tbl.append(tbody);
+
+      const addRow = (figId, subId, cap, graphs) => {
+        const count = graphs && graphs.length ? graphs.length : 0;
+        tbody.append(el('tr', {}, [
+          el('td', {}, figId || ''),
+          el('td', {}, subId || ''),
+          el('td', {}, cap || ''),
+          el('td', {}, String(count)),
+          el('td', {}, graphDetails(graphs))
+        ]));
+      };
+
+      (figures || []).forEach(fig => {
+        const figId = fig.figure_id || '';
+        if (fig.graphs && fig.graphs.length) addRow(figId, '', safe(fig.caption_summary), fig.graphs);
+        if (fig.subfigures && fig.subfigures.length) {
+          fig.subfigures.forEach(sf => addRow(figId, sf.subfigure_id || '', safe(sf.caption_summary), sf.graphs || []));
+        }
+        if ((!fig.graphs || fig.graphs.length === 0) && (!fig.subfigures || fig.subfigures.length === 0)) addRow(figId, '', safe(fig.caption_summary), []);
+      });
+
+      card.append(el('div', { class: 'table-wrap' }, tbl));
+      root.append(card);
+    }
+
+    function renderSamplesCommon(common = {}, root) {
+      const card = el('div', { class: 'card' });
+      card.append(el('h2', {}, 'Samples — Common Info'));
+      const view = {
+        morphology: safe(common.morphology),
+        microstructure: {
+          'sintering_density (normalized 0–1)': fmtNum(common?.microstructure?.sintering_density),
+          'grain_size [m]': fmtNum(common?.microstructure?.grain_size),
+          other: safe(common?.microstructure?.other)
+        },
+        synthesis: {
+          method: safe(common?.synthesis?.method),
+          equipment: safe(common?.synthesis?.equipment),
+          conditions: safe(common?.synthesis?.conditions)
+        },
+        measurement: {
+          properties_measured: (common?.measurement?.properties_measured || []).join(', '),
+          methods: safe(common?.measurement?.methods),
+          equipment: safe(common?.measurement?.equipment),
+          conditions: safe(common?.measurement?.conditions)
+        },
+        other_factors: safe(common.other_factors)
+      };
+      card.append(el('div', { class: 'table-wrap' }, tableKV(view)));
+      root.append(card);
+    }
+
+    function overridesDetails(over = {}) {
+      if (isEmpty(over)) return el('span', { class: 'muted' }, '—');
+      const v = {
+        morphology: safe(over.morphology),
+        microstructure: {
+          'sintering_density (normalized 0–1)': fmtNum(over?.microstructure?.sintering_density),
+          'grain_size [m]': fmtNum(over?.microstructure?.grain_size),
+          other: safe(over?.microstructure?.other)
+        },
+        synthesis: over.synthesis || {},
+        measurement: {
+          properties_measured: (over?.measurement?.properties_measured || []).join(', '),
+          methods: safe(over?.measurement?.methods),
+          equipment: safe(over?.measurement?.equipment),
+          conditions: safe(over?.measurement?.conditions)
+        },
+        other_factors: safe(over.other_factors)
+      };
+      return tableKV(v);
+    }
+
+    function renderSamples(samples = [], root) {
+      const card = el('div', { class: 'card' });
+      card.append(el('h2', {}, `Samples (${samples.length})`));
+      const tbl = el('table', { class: 'compact' });
+      tbl.append(el('thead', {}, el('tr', {}, [
+        el('th', {}, 'Sample Name'),
+        el('th', {}, 'Crystal Structure'),
+        el('th', {}, 'Parent Formula'),
+        el('th', {}, 'Parent (molar)'),
+        el('th', {}, 'Composition — start / target / analyzed'),
+        el('th', {}, 'Molar — start / target / analyzed'),
+        el('th', {}, 'Appears In'),
+        el('th', {}, 'Overrides?'),
+        el('th', {}, 'Details')
+      ])));
+      const tbody = el('tbody'); tbl.append(tbody);
+
+      (samples || []).forEach(s => {
+        const comp = s.sample_composition || {};
+        const mol = s.molar_composition || {};
+        const hasOv = !isEmpty(s.overrides);
+        const details = el('details', {}, [
+          el('summary', {}, 'Show overrides'),
+          el('div', { class: 'table-wrap' }, overridesDetails(s.overrides || {}))
+        ]);
+        tbody.append(el('tr', {}, [
+          el('td', {}, safe(s.sample_name)),
+          el('td', {}, safe(s.crystal_structure)),
+          el('td', {}, safe(s.parent_composition?.formula_text)),
+          el('td', {}, safe(s.parent_composition?.molar_composition)),
+          el('td', {}, `${safe(comp.starting_composition)} / ${safe(comp.target_composition)} / ${safe(comp.analyzed_composition)}`),
+          el('td', {}, `${safe(mol.starting)} / ${safe(mol.target)} / ${safe(mol.analyzed)}`),
+          el('td', {}, (s.appears_in || []).join(', ')),
+          el('td', {}, hasOv ? el('span', { class: 'ok' }, 'Yes') : el('span', { class: 'muted' }, 'No')),
+          el('td', {}, hasOv ? details : el('span', { class: 'muted' }, '—'))
+        ]));
+      });
+
+      card.append(el('div', { class: 'table-wrap' }, tbl));
+      root.append(card);
+    }
+
+    function renderProvenance(prov = {}, root) {
+      const card = el('div', { class: 'card' });
+      card.append(el('h2', {}, 'Provenance'));
+      card.append(el('div', { class: 'table-wrap' }, tableKV(prov)));
+      root.append(card);
+    }
+
+    function renderAll(data) {
+      const out = document.getElementById('output');
+      out.innerHTML = '';
+      renderMetadata(data.paper_metadata || {}, out);
+      renderBinaryFlag(data.is_experimental_thermoelectric_with_original_samples, out);
+      renderFigures(data.figures || [], out);
+      renderSamplesCommon(data.samples_common || {}, out);
+      renderSamples(data.samples || [], out);
+      renderProvenance(data.provenance || {}, out);
+    }
+
+    const sampleData = {
+      paper_metadata: { title: "", doi: "", journal: "", year: null, authors: [], url: "", notes: "" },
+      is_experimental_thermoelectric_with_original_samples: null,
+      figures: [],
+      samples_common: { morphology: "", microstructure: { sintering_density: null, grain_size: null, other: "" }, synthesis: { method: "", equipment: "", conditions: "" }, measurement: { properties_measured: [], methods: "", equipment: "", conditions: "" }, other_factors: "" },
+      samples: [],
+      provenance: { extraction_method: "manual", annotator: "", date: "" }
+    };
+
+    document.getElementById('load-sample').onclick = () => {
+      document.getElementById('json-input').value = JSON.stringify(sampleData, null, 2);
+    };
+
+    document.getElementById('render-btn').onclick = () => {
+      const txt = document.getElementById('json-input').value.trim();
+      let data;
+      try {
+        data = txt ? JSON.parse(txt) : sampleData;
+      } catch (e) {
+        alert('JSON parse error: ' + e.message);
+        return;
+      }
+      renderAll(data);
+      window.scrollTo({ top: document.querySelector('header').offsetHeight, behavior: 'smooth' });
+    };
+
+    document.getElementById('download-html').onclick = () => {
+      const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'thermoelectric_json_tables.html'; a.click();
+      URL.revokeObjectURL(url);
+    };
+
+    // Initialize textarea with skeleton
+    document.getElementById('json-input').value = JSON.stringify(sampleData, null, 2);
+  </script>
+
+
+</body></html>
