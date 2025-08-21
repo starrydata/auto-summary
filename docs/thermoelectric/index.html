@@ -54,13 +54,41 @@
     .mono { font-family: var(--mono); }
     .muted { color: var(--muted); }
     .footer-note { color: var(--muted); font-size: 11px; margin-top: 8px; }
+    .info-box { background: #f9fafb; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; }
+    .info-box h3 { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: var(--text); }
+    .info-box p { margin: 4px 0; font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .info-box .external-btn { background: var(--accent); color: white; border: none; padding: 6px 12px; font-size: 12px; margin-top: 8px; }
+    .info-box .external-btn:hover { background: #1d4ed8; }
+    .step-label { display: inline-block; background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-right: 6px; }
+    .step-section { margin-bottom: 16px; }
+    .step-header { display: flex; align-items: center; margin-bottom: 8px; }
+    .step-title { font-size: 14px; font-weight: 600; color: var(--text); }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <h1>Thermoelectric Paper JSON → Compact HTML Tables</h1>
-      <div class="sub">Paste your JSON (grain size in [m]; sintering density normalized with 1 = theoretical).</div>
+      
+      <div class="step-section">
+        <div class="step-header">
+          <span class="step-label">Step 1</span>
+          <span class="step-title">Generate JSON Data</span>
+        </div>
+        <div class="info-box">
+          <p>To extract JSON data from thermoelectric material research papers, use our custom ChatGPT: "Sample Information Extractor (Thermoelectric)".</p>
+          <button class="external-btn" onclick="window.open('https://chatgpt.com/g/g-68a6737fa61881919561c553e5aac277-sample-information-extractor-thermoelectric', '_blank')">
+            Generate JSON with ChatGPT →
+          </button>
+        </div>
+      </div>
+      
+      <div class="step-section">
+        <div class="step-header">
+          <span class="step-label">Step 2</span>
+          <span class="step-title">Paste Your JSON and Render Tables</span>
+        </div>
+        <div class="sub">Paste your JSON (grain size in [m]; sintering density normalized with 1 = theoretical).</div>
       <div class="controls">
         <textarea id="json-input" placeholder="Paste JSON here..."></textarea>
         <div class="btnrow">
