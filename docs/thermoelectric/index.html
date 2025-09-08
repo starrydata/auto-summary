@@ -23,7 +23,7 @@
     h1 { font-size: 18px; margin: 0; }
     .sub { color: var(--muted); font-size: 12px; }
     .controls { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
-    textarea { width: 100%; min-height: 160px; resize: vertical; box-sizing: border-box;
+    textarea { width: 100%; min-height: 180px; resize: vertical; box-sizing: border-box;
       background: #ffffff; color: var(--text); border: 1px solid var(--border);
       border-radius: 8px; padding: 10px; font-family: var(--mono); font-size: 12px; }
     .btnrow { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -39,21 +39,22 @@
     .card h2 { margin: 0 0 8px; font-size: 14px; }
     .meta { color: var(--muted); font-size: 12px; }
     .table-wrap { overflow: auto; border: 1px solid var(--border); border-radius: 10px; }
-    table { border-collapse: collapse; width: 100%; min-width: 600px; }
+    table { border-collapse: collapse; width: 100%; min-width: 1100px; }
     thead th { position: sticky; top: 0; z-index: 1; background: #f8fafc; color: var(--muted);
       font-weight: 600; text-align: left; border-bottom: 1px solid var(--border); }
     th, td { padding: 4px 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
     tbody tr:hover { background: #f9fafb; }
     .compact th, .compact td { padding: 3px 6px; font-size: 12px; }
-    .kvt td:first-child { white-space: nowrap; color: var(--muted); width: 220px; }
-    details { border: 1px dashed var(--border); background: #ffffff; border-radius: 8px; padding: 6px 8px; }
+    .kvt td:first-child { white-space: nowrap; color: var(--muted); width: 240px; }
+    details { border: 1px dashed var(--border); border-radius: 8px; padding: 6px 8px; }
     details > summary { cursor: pointer; color: var(--accent); outline: none; }
-    .pill { display: inline-block; padding: 2px 6px; border: 1px solid var(--border); border-radius: 999px; font-size: 11px; color: var(--muted); }
+    .pill { display: inline-block; padding: 2px 6px; border: 1px solid var(--border); border-radius: 999px; font-size: 11px; color: var(--muted); margin: 2px 4px 0 0; }
     .ok { color: var(--ok); }
     .bad { color: var(--danger); }
     .mono { font-family: var(--mono); }
     .muted { color: var(--muted); }
     .footer-note { color: var(--muted); font-size: 11px; margin-top: 8px; }
+    .formula { font-family: var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.4; }
     .info-box { background: #f9fafb; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; }
     .info-box h3 { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: var(--text); }
     .info-box p { margin: 4px 0; font-size: 12px; color: var(--muted); line-height: 1.5; }
@@ -101,7 +102,7 @@
   </header>
 
   <main class="container">
-    <div id="output" class="grid"><div class="card"><h2>Paper Metadata</h2><div class="table-wrap"><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody></tbody></table></div></div><div class="card"><h2>Scope Check</h2><div><span class="muted">Unknown (not evaluated)</span></div></div><div class="card"><h2>Figures (0)</h2><div class="table-wrap"><table class="compact"><thead><tr><th>Figure ID</th><th>Subfigure</th><th>Caption Summary</th><th>Graphs (#)</th><th>Graphs — Details</th></tr></thead><tbody></tbody></table></div></div><div class="card"><h2>Samples — Common Info</h2><div class="table-wrap"><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>microstructure</td><td><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody></tbody></table></td></tr><tr><td>synthesis</td><td><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody></tbody></table></td></tr><tr><td>measurement</td><td><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody></tbody></table></td></tr></tbody></table></div></div><div class="card"><h2>Samples (0)</h2><div class="table-wrap"><table class="compact"><thead><tr><th>Sample Name</th><th>Crystal Structure</th><th>Parent Formula</th><th>Parent (molar)</th><th>Composition — start / target / analyzed</th><th>Molar — start / target / analyzed</th><th>Appears In</th><th>Overrides?</th><th>Details</th></tr></thead><tbody></tbody></table></div></div><div class="card"><h2>Provenance</h2><div class="table-wrap"><table class="compact kvt"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>extraction_method</td><td><span>manual</span></td></tr></tbody></table></div></div></div>
+    <div id="output" class="grid"></div>
   </main>
 
   <script>
@@ -117,7 +118,16 @@
       return node;
     };
     const isEmpty = (v) => v === null || v === undefined || (typeof v === 'string' && v.trim() === '') || (Array.isArray(v) && v.length === 0) || (typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length === 0);
-    const safe = (v) => v === null || v === undefined ? '' : v;
+    const sanitize = (txt) => {
+      if (txt === null || txt === undefined) return '';
+      if (typeof txt !== 'string') return txt;
+      return txt.replace(/:contentReference\[oaicite:[^\]]*\]\{[^}]*\}/g, '');
+    };
+    const safe = (v) => {
+      if (v === null || v === undefined) return '';
+      if (typeof v === 'string') return sanitize(v);
+      return v;
+    };
     const fmtNum = (v) => (v === null || v === undefined || v === '') ? '' : (typeof v === 'number' ? v.toString() : v);
 
     function tableKV(obj, titleMap = {}) {
@@ -129,11 +139,12 @@
         if (isEmpty(v)) continue;
         let valueNode;
         if (Array.isArray(v)) {
-          valueNode = el('div', {}, v.map(x => el('span', { class: 'pill' }, safe(x))));
+          valueNode = el('div', {}, v.map(x => el('span', { class: 'pill' }, safe(typeof x === 'string' ? sanitize(x) : x))));
         } else if (typeof v === 'object') {
           valueNode = tableKV(v);
         } else {
-          valueNode = el('span', {}, String(v));
+          const toText = (x) => (typeof x === 'string' ? sanitize(x) : String(x));
+          valueNode = el('span', {}, toText(v));
         }
         tbody.append(el('tr', {}, [el('td', {}, titleMap[k] || k), el('td', {}, valueNode)]));
       }
@@ -149,13 +160,19 @@
       root.append(card);
     }
 
-    function renderBinaryFlag(flag, root) {
+    function renderScopeCheck(scope, root) {
       const card = el('div', { class: 'card' });
       card.append(el('h2', {}, 'Scope Check'));
-      const msg = flag === true ? el('span', { class: 'ok' }, 'Yes — experimental thermoelectric study with original samples')
-        : flag === false ? el('span', { class: 'bad' }, 'No — not the targeted experimental study')
-        : el('span', { class: 'muted' }, 'Unknown (not evaluated)');
-      card.append(el('div', {}, msg));
+      const view = {
+        domain: safe(scope?.domain),
+        is_original_research: scope?.is_original_research,
+        is_review: scope?.is_review,
+        is_experimental: scope?.is_experimental,
+        is_theoretical: scope?.is_theoretical,
+        purpose: safe(scope?.purpose),
+        approach: safe(scope?.approach)
+      };
+      card.append(el('div', { class: 'table-wrap' }, tableKV(view)));
       root.append(card);
     }
 
@@ -236,7 +253,7 @@
         morphology: safe(common.morphology),
         microstructure: {
           'sintering_density (normalized 0–1)': fmtNum(common?.microstructure?.sintering_density),
-          'grain_size [m]': fmtNum(common?.microstructure?.grain_size),
+          grain_size: fmtNum(common?.microstructure?.grain_size),
           other: safe(common?.microstructure?.other)
         },
         synthesis: {
@@ -245,7 +262,7 @@
           conditions: safe(common?.synthesis?.conditions)
         },
         measurement: {
-          properties_measured: (common?.measurement?.properties_measured || []).join(', '),
+          properties_measured: (common?.measurement?.properties_measured || []).map(x => typeof x === 'string' ? sanitize(x) : x).join(', '),
           methods: safe(common?.measurement?.methods),
           equipment: safe(common?.measurement?.equipment),
           conditions: safe(common?.measurement?.conditions)
@@ -256,23 +273,28 @@
       root.append(card);
     }
 
-    function overridesDetails(over = {}) {
-      if (isEmpty(over)) return el('span', { class: 'muted' }, '—');
+
+    function formulaNode(text) {
+      return el('div', { class: 'formula' }, safe(text));
+    }
+
+    function perSampleDetails(ss = {}) {
+      if (isEmpty(ss)) return el('span', { class: 'muted' }, '—');
       const v = {
-        morphology: safe(over.morphology),
+        morphology: safe(ss.morphology),
         microstructure: {
-          'sintering_density (normalized 0–1)': fmtNum(over?.microstructure?.sintering_density),
-          'grain_size [m]': fmtNum(over?.microstructure?.grain_size),
-          other: safe(over?.microstructure?.other)
+          sintering_density: fmtNum(ss?.microstructure?.sintering_density),
+          grain_size: fmtNum(ss?.microstructure?.grain_size),
+          other: safe(ss?.microstructure?.other)
         },
-        synthesis: over.synthesis || {},
+        synthesis: ss.synthesis || {},
         measurement: {
-          properties_measured: (over?.measurement?.properties_measured || []).join(', '),
-          methods: safe(over?.measurement?.methods),
-          equipment: safe(over?.measurement?.equipment),
-          conditions: safe(over?.measurement?.conditions)
+          properties_measured: (ss?.measurement?.properties_measured || []).map(x => typeof x === 'string' ? sanitize(x) : x).join(', '),
+          methods: safe(ss?.measurement?.methods),
+          equipment: safe(ss?.measurement?.equipment),
+          conditions: safe(ss?.measurement?.conditions)
         },
-        other_factors: safe(over.other_factors)
+        other_factors: safe(ss.other_factors)
       };
       return tableKV(v);
     }
@@ -286,10 +308,14 @@
         el('th', {}, 'Crystal Structure'),
         el('th', {}, 'Parent Formula'),
         el('th', {}, 'Parent (molar)'),
-        el('th', {}, 'Composition — start / target / analyzed'),
-        el('th', {}, 'Molar — start / target / analyzed'),
+        el('th', {}, 'Starting Composition'),
+        el('th', {}, 'Target Composition'),
+        el('th', {}, 'Analyzed Composition'),
+        el('th', {}, 'Molar Starting'),
+        el('th', {}, 'Molar Target'),
+        el('th', {}, 'Molar Analyzed'),
         el('th', {}, 'Appears In'),
-        el('th', {}, 'Overrides?'),
+        el('th', {}, 'Sample-specific?'),
         el('th', {}, 'Details')
       ])));
       const tbody = el('tbody'); tbl.append(tbody);
@@ -297,25 +323,59 @@
       (samples || []).forEach(s => {
         const comp = s.sample_composition || {};
         const mol = s.molar_composition || {};
-        const hasOv = !isEmpty(s.overrides);
+        const hasSS = !isEmpty(s.sample_specific);
         const details = el('details', {}, [
-          el('summary', {}, 'Show overrides'),
-          el('div', { class: 'table-wrap' }, overridesDetails(s.overrides || {}))
+          el('summary', {}, 'Show sample-specific fields'),
+          el('div', { class: 'table-wrap' }, perSampleDetails(s.sample_specific || {}))
         ]);
         tbody.append(el('tr', {}, [
           el('td', {}, safe(s.sample_name)),
           el('td', {}, safe(s.crystal_structure)),
-          el('td', {}, safe(s.parent_composition?.formula_text)),
+          el('td', {}, formulaNode(s.parent_composition?.formula_text)),
           el('td', {}, safe(s.parent_composition?.molar_composition)),
-          el('td', {}, `${safe(comp.starting_composition)} / ${safe(comp.target_composition)} / ${safe(comp.analyzed_composition)}`),
-          el('td', {}, `${safe(mol.starting)} / ${safe(mol.target)} / ${safe(mol.analyzed)}`),
+          el('td', {}, formulaNode(comp.starting_composition)),
+          el('td', {}, formulaNode(comp.target_composition)),
+          el('td', {}, formulaNode(comp.analyzed_composition)),
+          el('td', {}, safe(mol.starting)),
+          el('td', {}, safe(mol.target)),
+          el('td', {}, safe(mol.analyzed)),
           el('td', {}, (s.appears_in || []).join(', ')),
-          el('td', {}, hasOv ? el('span', { class: 'ok' }, 'Yes') : el('span', { class: 'muted' }, 'No')),
-          el('td', {}, hasOv ? details : el('span', { class: 'muted' }, '—'))
+          el('td', {}, hasSS ? el('span', { class: 'ok' }, 'Yes') : el('span', { class: 'muted' }, 'No')),
+          el('td', {}, hasSS ? details : el('span', { class: 'muted' }, '—'))
         ]));
       });
 
       card.append(el('div', { class: 'table-wrap' }, tbl));
+      root.append(card);
+    }
+
+    function renderTables(tables = [], root) {
+      const card = el('div', { class: 'card' });
+      card.append(el('h2', {}, `Tables (${tables.length})`));
+      if (!tables || tables.length === 0) {
+        card.append(el('div', { class: 'muted' }, 'No tables found.'));
+        root.append(card); return;
+      }
+      tables.forEach((t, idx) => {
+        const det = el('details', {}, [
+          el('summary', {}, `${t.table_id || 'Table ' + (idx+1)} — ${t.caption_summary || ''}`)
+        ]);
+        if (t.headers && t.headers.length) {
+          const tt = el('table', { class: 'compact' });
+          const thead = el('thead', {}, el('tr', {}, t.headers.map(h => el('th', {}, safe(h)))));
+          const tbody = el('tbody');
+          tt.append(thead, tbody);
+          (t.rows || []).forEach(r => {
+            const row = Array.isArray(r) ? r : [];
+            tbody.append(el('tr', {}, row.map(c => el('td', {}, safe(c)))));
+          });
+          det.append(el('div', { class: 'table-wrap' }, tt));
+        } else {
+          det.append(el('div', { class: 'table-wrap' }, tableKV({ headers: t.headers || [], rows: t.rows || [] })));
+        }
+        if (!isEmpty(t.notes)) det.append(el('div', { class: 'footer-note' }, `notes: ${t.notes}`));
+        card.append(det);
+      });
       root.append(card);
     }
 
@@ -330,8 +390,9 @@
       const out = document.getElementById('output');
       out.innerHTML = '';
       renderMetadata(data.paper_metadata || {}, out);
-      renderBinaryFlag(data.is_experimental_thermoelectric_with_original_samples, out);
+      renderScopeCheck(data.scope_check || {}, out);
       renderFigures(data.figures || [], out);
+      renderTables(data.tables || [], out);
       renderSamplesCommon(data.samples_common || {}, out);
       renderSamples(data.samples || [], out);
       renderProvenance(data.provenance || {}, out);
@@ -339,9 +400,24 @@
 
     const sampleData = {
       paper_metadata: { title: "", doi: "", journal: "", year: null, authors: [], url: "", notes: "" },
-      is_experimental_thermoelectric_with_original_samples: null,
+      scope_check: {
+        domain: "",
+        is_original_research: null,
+        is_review: null,
+        is_experimental: null,
+        is_theoretical: null,
+        purpose: "",
+        approach: ""
+      },
       figures: [],
-      samples_common: { morphology: "", microstructure: { sintering_density: null, grain_size: null, other: "" }, synthesis: { method: "", equipment: "", conditions: "" }, measurement: { properties_measured: [], methods: "", equipment: "", conditions: "" }, other_factors: "" },
+      tables: [],
+      samples_common: {
+        morphology: "",
+        microstructure: { sintering_density: null, grain_size: null, other: "" },
+        synthesis: { method: "", equipment: "", conditions: "" },
+        measurement: { properties_measured: [], methods: "", equipment: "", conditions: "" },
+        other_factors: ""
+      },
       samples: [],
       provenance: { extraction_method: "manual", annotator: "", date: "" }
     };
