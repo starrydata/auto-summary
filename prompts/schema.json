@@ -1,0 +1,132 @@
+{
+  "paper_metadata": {
+    "title": "",
+    "doi": "",
+    "journal": "",
+    "year": null,
+    "authors": [],
+    "url": "",
+    "notes": ""
+  },
+  "scope_check": {
+    "domain": "",
+    "is_original_research": null,
+    "is_review": null,
+    "is_experimental": null,
+    "is_theoretical": null,
+    "purpose": "",
+    "approach": ""
+  },
+  "figures": [
+    {
+      "figure_id": "",
+      "caption_summary": "",
+      "subfigures": [
+        {
+          "subfigure_id": "",
+          "caption_summary": "",
+          "graphs": [
+            {
+              "graph_id": "",
+              "axes": [
+                {
+                  "axis": "x",
+                  "quantity": "",
+                  "unit": "",
+                  "reference_ticks": [],
+                  "scale": "linear",
+                  "conversion_to_SI": ""
+                },
+                {
+                  "axis": "y",
+                  "quantity": "",
+                  "unit": "",
+                  "reference_ticks": [],
+                  "scale": "linear",
+                  "conversion_to_SI": ""
+                }
+              ],
+              "notes": ""
+            }
+          ]
+        }
+      ],
+      "graphs": []
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "",
+      "caption_summary": "",
+      "headers": [],
+      "rows": [[]],
+      "notes": ""
+    }
+  ],
+  "samples_common": {
+    "morphology": "",
+    "microstructure": {
+      "sintering_density": null,
+      "grain_size": null,
+      "other": ""
+    },
+    "synthesis": {
+      "method": "",
+      "equipment": "",
+      "conditions": ""
+    },
+    "measurement": {
+      "properties_measured": [],
+      "methods": "",
+      "equipment": "",
+      "conditions": ""
+    },
+    "other_factors": ""
+  },
+  "samples": [
+    {
+      "sample_name": "",
+      "crystal_structure": "",
+      "parent_composition": {
+        "formula_text": "",
+        "molar_composition": ""
+      },
+      "sample_composition": {
+        "starting_composition": "",
+        "target_composition": "",
+        "analyzed_composition": ""
+      },
+      "molar_composition": {
+        "starting": "",
+        "target": "",
+        "analyzed": ""
+      },
+      "appears_in": [],
+      "sample_specific": {
+        "morphology": "",
+        "microstructure": {
+          "sintering_density": null,
+          "grain_size": null,
+          "other": ""
+        },
+        "synthesis": {
+          "method": "",
+          "equipment": "",
+          "conditions": ""
+        },
+        "measurement": {
+          "properties_measured": [],
+          "methods": "",
+          "equipment": "",
+          "conditions": ""
+        },
+        "other_factors": ""
+      }
+    }
+  ],
+  "provenance": {
+    "extraction_method": "manual",
+    "annotator": "",
+    "date": ""
+  }
+}
