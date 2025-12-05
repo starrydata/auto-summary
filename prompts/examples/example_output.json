@@ -1,0 +1,563 @@
+{
+  "paper_metadata": {
+    "title": "Solubility limit and annealing effects on the microstructure & thermoelectric properties of Fe2V1−xTaxAl1−ySiy Heusler compounds",
+    "doi": "10.1016/j.actamat.2021.116867",
+    "journal": "Acta Materialia",
+    "year": 2021,
+    "authors": [
+      "Fabian Garmroudi",
+      "Michael Parzer",
+      "Alexander Riss",
+      "Nikolas Reumann",
+      "Bernhard Hinterleitner",
+      "Kazuki Tobita",
+      "Yukari Katsura",
+      "Kaoru Kimura",
+      "Takao Mori",
+      "Ernst Bauer"
+    ],
+    "url": "https://doi.org/10.1016/j.actamat.2021.116867",
+    "notes": "Open access under CC BY 4.0. :contentReference[oaicite:0]{index=0}"
+  },
+  "scope_check": {
+    "domain": "thermoelectric materials",
+    "is_original_research": true,
+    "is_review": false,
+    "is_experimental": true,
+    "is_theoretical": true,
+    "purpose": "Determine the solubility limits of Ta and Si in full-Heusler Fe2V1− xTaxAl1−ySiy, understand annealing effects on microstructure, and link these to thermoelectric transport.",
+    "approach": "Bulk alloys were synthesized by RF induction melting and vacuum annealing, then characterized by powder XRD (Rietveld), SEM/EDX. Selected compositions underwent additional long-term and high-temperature anneals. Seebeck coefficient, electrical resistivity, and thermal conductivity were measured over wide T ranges and analyzed using transport models (triple-parabolic band; Callaway model for lattice thermal conductivity). :contentReference[oaicite:1]{index=1}"
+  },
+  "figures": [
+    {
+      "figure_id": "Fig.1",
+      "caption_summary": "Powder XRD patterns of Fe2V1−xTaxAl1−ySiy after 1073 K, 168 h anneal; impurity peaks of hexagonal Fe2Ta-type Laves phase (C14) grow with Ta and Si; lattice parameter vs x and y showing deviations at solubility limit.",
+      "subfigures": [
+        {
+          "subfigure_id": "Fig.1a",
+          "caption_summary": "XRD patterns showing diminished (111) peak (B2/CsCl-type disorder) and emergence of Fe2Ta (C14) peaks with increasing x and y.",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.1b",
+          "caption_summary": "Room-temperature lattice parameter a vs composition; linear trends with deviations at x=0.1,y=0.1 and x=0.15,y=0 indicating solubility limit.",
+          "graphs": []
+        }
+      ],
+      "graphs": []
+    },
+    {
+      "figure_id": "Fig.2",
+      "caption_summary": "SEM microstructures at solubility border: Fe2V0.9Ta0.1Al shows diffuse contrast and nanoscale precipitates (metastable supersaturated Heusler); Fe2V0.9Ta0.1Al0.9Si0.1 shows lamellar impurity phase.",
+      "subfigures": [
+        {
+          "subfigure_id": "Fig.2a",
+          "caption_summary": "Fe2V0.9Ta0.1Al (1073 K, 168 h): diffuse contrast indicating metastable, oversaturated Heusler.",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.2b",
+          "caption_summary": "Fe2V0.9Ta0.1Al0.9Si0.1 (1073 K, 168 h): large amount of lamella-shaped impurity.",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.2c",
+          "caption_summary": "Magnified view of Fig.2a showing nanoscale precipitates (few 10^−7 m scale).",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.2d",
+          "caption_summary": "Magnified view of Fig.2b highlighting lamellar morphology.",
+          "graphs": []
+        }
+      ],
+      "graphs": []
+    },
+    {
+      "figure_id": "Fig.3",
+      "caption_summary": "SEM/EDX of Fe2V1−xTaxAl for x=0.1, 0.15, 0.2 showing that Ta content in Heusler matrix saturates; further Ta increases secondary phase fraction.",
+      "subfigures": [
+        {
+          "subfigure_id": "Fig.3a",
+          "caption_summary": "x=0.1: Heusler matrix analyzed composition ~Fe1.984V0.896Ta0.072Al1.048 (approx.).",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.3b",
+          "caption_summary": "x=0.15: Heusler matrix ~Fe1.952V0.844Ta0.068Al1.136 (approx.).",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.3c",
+          "caption_summary": "x=0.2: Heusler matrix ~Fe1.944V0.844Ta0.072Al1.140 (approx.).",
+          "graphs": []
+        }
+      ],
+      "graphs": []
+    },
+    {
+      "figure_id": "Fig.4",
+      "caption_summary": "Solubility map of Fe2V1−xTaxAl1−ySiy from XRD and SEM: single-phase vs impurity-bearing regions; Al/Si substitution reduces Ta solubility.",
+      "subfigures": [],
+      "graphs": []
+    },
+    {
+      "figure_id": "Fig.5",
+      "caption_summary": "SEM of Fe2V0.95Ta0.05Al0.9Si0.1 after different annealing histories: evolution from diffuse contrast to punctiform precipitates, to connected/grain-boundary segregated, to fine lamellar/dendritic secondary phase with longer anneals.",
+      "subfigures": [
+        {
+          "subfigure_id": "Fig.5a",
+          "caption_summary": "LT short (1073 K, 168 h): diffuse contrasts, small unconnected precipitates.",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.5b",
+          "caption_summary": "HT short (additional 1373 K, 48 h + 1273 K, 120 h; total 336 h): evenly dispersed punctiform precipitates (nanoscale).",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.5c",
+          "caption_summary": "HT long (total 399 h): precipitates grow/connect; grain boundary segregation and grainlike impurity regions.",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.5d",
+          "caption_summary": "LT long (additional 744 h at 1073 K; total 912 h): dendrite-like precipitates; fine lamellar microstructure intertwined in Heusler.",
+          "graphs": []
+        },
+        {
+          "subfigure_id": "Fig.5e",
+          "caption_summary": "Additional LT long view highlighting eutectic-like lamellae.",
+          "graphs": []
+        }
+      ],
+      "graphs": []
+    },
+    {
+      "figure_id": "Fig.6",
+      "caption_summary": "Temperature-dependent transport of Fe2V0.95Ta0.05Al0.9Si0.1 for different anneals: Seebeck S(T), resistivity ρ(T), thermal conductivity λ(T), and ZT(T); model fits included.",
+      "subfigures": [
+        {
+          "subfigure_id": "Fig.6a",
+          "caption_summary": "Seebeck coefficient vs temperature with tripleparabolic model fits.",
+          "graphs": [
+            {
+              "graph_id": "Fig.6a_g1",
+              "axes": [
+                {
+                  "axis": "x",
+                  "quantity": "temperature",
+                  "unit": "K",
+                  "reference_ticks": [4, 300, 800],
+                  "scale": "linear",
+                  "conversion_to_SI": "T_SI = T"
+                },
+                {
+                  "axis": "y",
+                  "quantity": "Seebeck coefficient",
+                  "unit": "µV K^-1",
+                  "reference_ticks": [0, 50, 150],
+                  "scale": "linear",
+                  "conversion_to_SI": "S_SI = S(µV/K) * 1e-6"
+                }
+              ],
+              "notes": "Multiple annealing conditions plotted (LT short, HT short, HT long, LT long)."
+            }
+          ]
+        },
+        {
+          "subfigure_id": "Fig.6b",
+          "caption_summary": "Electrical resistivity vs temperature.",
+          "graphs": [
+            {
+              "graph_id": "Fig.6b_g1",
+              "axes": [
+                {
+                  "axis": "x",
+                  "quantity": "temperature",
+                  "unit": "K",
+                  "reference_ticks": [4, 300, 800],
+                  "scale": "linear",
+                  "conversion_to_SI": "T_SI = T"
+                },
+                {
+                  "axis": "y",
+                  "quantity": "electrical resistivity",
+                  "unit": "mΩ cm",
+                  "reference_ticks": [0.1, 1, 5],
+                  "scale": "linear",
+                  "conversion_to_SI": "rho_SI = rho(mΩ·cm) * 1e-5"
+                }
+              ],
+              "notes": "Pronounced maxima shift with annealing; metallic channels from secondary phase reduce |S| and ρ. :contentReference[oaicite:2]{index=2}"
+            }
+          ]
+        },
+        {
+          "subfigure_id": "Fig.6c",
+          "caption_summary": "Thermal conductivity vs temperature; λe removed via Wiedemann–Franz to analyze λlatt with Callaway model; radiation correction (RT^3) applied.",
+          "graphs": [
+            {
+              "graph_id": "Fig.6c_g1",
+              "axes": [
+                {
+                  "axis": "x",
+                  "quantity": "temperature",
+                  "unit": "K",
+                  "reference_ticks": [8, 100, 300],
+                  "scale": "linear",
+                  "conversion_to_SI": "T_SI = T"
+                },
+                {
+                  "axis": "y",
+                  "quantity": "thermal conductivity",
+                  "unit": "W m^-1 K^-1",
+                  "reference_ticks": [4, 10, 25],
+                  "scale": "linear",
+                  "conversion_to_SI": "lambda_SI = lambda"
+                }
+              ],
+              "notes": "Lowest λ for HT short across the range; λ_300K down to ~4.1 W m^-1 K^-1 in LT long after correction. :contentReference[oaicite:3]{index=3}"
+            }
+          ]
+        },
+        {
+          "subfigure_id": "Fig.6d",
+          "caption_summary": "ZT vs temperature derived from measured S, ρ, λ; peak ZT≈0.3–0.34 near 300 K (HT short).",
+          "graphs": [
+            {
+              "graph_id": "Fig.6d_g1",
+              "axes": [
+                {
+                  "axis": "x",
+                  "quantity": "temperature",
+                  "unit": "K",
+                  "reference_ticks": [50, 300, 800],
+                  "scale": "linear",
+                  "conversion_to_SI": "T_SI = T"
+                },
+                {
+                  "axis": "y",
+                  "quantity": "figure of merit",
+                  "unit": "dimensionless",
+                  "reference_ticks": [0, 0.2, 0.4],
+                  "scale": "linear",
+                  "conversion_to_SI": "ZT_SI = ZT"
+                }
+              ],
+              "notes": "ZT increased despite reduced |S| due to lowered λ; highest reported for bulk Fe2VAl-type at RT in this work. :contentReference[oaicite:4]{index=4}"
+            }
+          ]
+        }
+      ],
+      "graphs": []
+    },
+    {
+      "figure_id": "Fig.7",
+      "caption_summary": "Phenomenological evolution of band structure from fits: apparent band gap decreases with annealing, reflecting metallic-like influence of secondary phase in effective single-phase analysis.",
+      "subfigures": [],
+      "graphs": []
+    }
+  ],
+  "tables": [],
+  "samples_common": {
+    "morphology": "Polycrystalline bulk ingots; rectangular bars (2×2×10 mm) cut for transport; powders ground for XRD.",
+    "microstructure": {
+      "sintering_density": null,
+      "grain_size": null,
+      "other": "Heusler L21 matrix with antisite (B2/CsCl-type) disorder common after 1073 K/168 h; secondary hexagonal Fe2Ta-type (C14) Laves phase appears beyond solubility; precipitates evolve from nanoscale dots to lamellae/dendrites with prolonged annealing. :contentReference[oaicite:5]{index=5}"
+    },
+    "synthesis": {
+      "method": "RF induction melting of high-purity elements; multiple remelts for homogeneity; vacuum quartz-tube anneal; furnace cool.",
+      "equipment": "Radio frequency induction furnace; quartz tubes; vacuum pump.",
+      "conditions": "Base pressure ≈1e-5 mbar; standard anneal 1073 K for 168 h (6.048e5 s); additional sequences for selected samples: HT short 1373 K for 48 h (1.728e5 s) + 1273 K for 120 h (4.32e5 s); HT long 1373 K for 48 h (1.728e5 s) + 1273 K for 183 h (6.588e5 s); LT long extra 744 h (2.6784e6 s) at 1073 K resulting in 912 h (3.2832e6 s) total. :contentReference[oaicite:6]{index=6}"
+    },
+    "measurement": {
+      "properties_measured": [
+        "Seebeck coefficient",
+        "electrical resistivity",
+        "thermal conductivity",
+        "power factor",
+        "figure of merit",
+        "lattice parameter",
+        "chemical composition"
+      ],
+      "methods": "Powder XRD with Rietveld refinement; SEM imaging; EDX for composition mapping; four-probe dc Seebeck/resistivity (300–800 K) and ac Seebeck (4–300 K); steady-state thermal conductivity in helium-cooled flow cryostat (8–300 K); Callaway model fits with radiation correction; Wiedemann–Franz for λe.",
+      "equipment": "XRD: Siemens D5000, PANalytical X’Pert Pro MPD, Rigaku SmartLab; SEM: JSM-IT100, Quanta 250 FEG; Seebeck/ρ: ADVANCE RIKO ZEM1 & ZEM3; cryostat setup for λ(T).",
+      "conditions": "Seebeck/resistivity measured from 4–800 K; thermal conductivity from 8–300 K under high vacuum; radiation correction term RT^3 used in analysis. :contentReference[oaicite:7]{index=7}"
+    },
+    "other_factors": "Antisite disorder increased in powders by grinding; annealing temperature strongly affects L21 ordering and (111) superlattice reflection; Al/Si co-substitution reduces Ta solubility. :contentReference[oaicite:8]{index=8}"
+  },
+  "samples": [
+    {
+      "sample_name": "Fe2V0.9Ta0.1Al",
+      "crystal_structure": "Full-Heusler (L21) with B2/CsCl-type disorder; secondary hexagonal Fe2Ta-type (C14) at/near solubility limit.",
+      "parent_composition": {
+        "formula_text": "Fe2V0.9Ta0.1Al",
+        "molar_composition": "Fe:2; V:0.9; Ta:0.1; Al:1"
+      },
+      "sample_composition": {
+        "starting_composition": "Nominal Fe2V0.9Ta0.1Al",
+        "target_composition": "Fe2V0.9Ta0.1Al",
+        "analyzed_composition": "Matrix approx. Fe1.984V0.896Ta0.072Al1.048 (EDX)"
+      },
+      "molar_composition": {
+        "starting": "Fe:2; V:0.9; Ta:0.1; Al:1",
+        "target": "Fe:2; V:0.9; Ta:0.1; Al:1",
+        "analyzed": "Fe:1.984; V:0.896; Ta:0.072; Al:1.048"
+      },
+      "appears_in": ["Fig.2a", "Fig.2c", "Fig.3a", "Fig.1a", "Fig.1b"],
+      "sample_specific": {
+        "morphology": "Bulk polycrystal; nanoscale impurity precipitates (few 1e-7 m) from oversaturated regions.",
+        "microstructure": {
+          "sintering_density": null,
+          "grain_size": null,
+          "other": "Metastable supersaturated Heusler with diffuse SEM contrast; onset of Fe2Ta-type impurity precipitation. :contentReference[oaicite:9]{index=9}"
+        },
+        "synthesis": {
+          "method": "RF melting; standard anneal.",
+          "equipment": "",
+          "conditions": "1073 K for 168 h (6.048e5 s), vacuum ≈1e-5 mbar; furnace cooled. :contentReference[oaicite:10]{index=10}"
+        },
+        "measurement": {
+          "properties_measured": [
+            "lattice parameter",
+            "Seebeck coefficient",
+            "electrical resistivity",
+            "thermal conductivity"
+          ],
+          "methods": "XRD; SEM/EDX; transport as described.",
+          "equipment": "",
+          "conditions": ""
+        },
+        "other_factors": "Estimated Ta solubility around x≈0.073 in Fe2V1−xTaxAl (y=0). :contentReference[oaicite:11]{index=11}"
+      }
+    },
+    {
+      "sample_name": "Fe2V0.9Ta0.1Al0.9Si0.1",
+      "crystal_structure": "Full-Heusler (L21/B2) matrix with significant lamellar secondary phase (Fe2Ta-type).",
+      "parent_composition": {
+        "formula_text": "Fe2V0.9Ta0.1Al0.9Si0.1",
+        "molar_composition": "Fe:2; V:0.9; Ta:0.1; Al:0.9; Si:0.1"
+      },
+      "sample_composition": {
+        "starting_composition": "Nominal Fe2V0.9Ta0.1Al0.9Si0.1",
+        "target_composition": "Fe2V0.9Ta0.1Al0.9Si0.1",
+        "analyzed_composition": ""
+      },
+      "molar_composition": {
+        "starting": "Fe:2; V:0.9; Ta:0.1; Al:0.9; Si:0.1",
+        "target": "Fe:2; V:0.9; Ta:0.1; Al:0.9; Si:0.1",
+        "analyzed": ""
+      },
+      "appears_in": ["Fig.2b", "Fig.2d", "Fig.1a", "Fig.1b"],
+      "sample_specific": {
+        "morphology": "Lamella-shaped impurity regions indicating reduced Ta solubility with Si substitution.",
+        "microstructure": {
+          "sintering_density": null,
+          "grain_size": null,
+          "other": "Thermal equilibrium with sizable Laves phase fraction; strong lamellar morphology. :contentReference[oaicite:12]{index=12}"
+        },
+        "synthesis": {
+          "method": "RF melting; standard anneal.",
+          "equipment": "",
+          "conditions": "1073 K for 168 h (6.048e5 s), vacuum ≈1e-5 mbar. :contentReference[oaicite:13]{index=13}"
+        },
+        "measurement": {
+          "properties_measured": ["lattice parameter", "microstructure"],
+          "methods": "XRD; SEM.",
+          "equipment": "",
+          "conditions": ""
+        },
+        "other_factors": "Al/Si substitution hampers Ta solubility. :contentReference[oaicite:14]{index=14}"
+      }
+    },
+    {
+      "sample_name": "Fe2V0.95Ta0.05Al0.9Si0.1 (LT short)",
+      "crystal_structure": "Full-Heusler (L21/B2) with nanoscale precipitates (metastable).",
+      "parent_composition": {
+        "formula_text": "Fe2V0.95Ta0.05Al0.9Si0.1",
+        "molar_composition": "Fe:2; V:0.95; Ta:0.05; Al:0.9; Si:0.1"
+      },
+      "sample_composition": {
+        "starting_composition": "Nominal Fe2V0.95Ta0.05Al0.9Si0.1",
+        "target_composition": "Fe2V0.95Ta0.05Al0.9Si0.1",
+        "analyzed_composition": ""
+      },
+      "molar_composition": {
+        "starting": "Fe:2; V:0.95; Ta:0.05; Al:0.9; Si:0.1",
+        "target": "Fe:2; V:0.95; Ta:0.05; Al:0.9; Si:0.1",
+        "analyzed": ""
+      },
+      "appears_in": ["Fig.5a", "Fig.6a", "Fig.6b", "Fig.6c", "Fig.6d", "Fig.7"],
+      "sample_specific": {
+        "morphology": "Diffuse contrasts; small unconnected precipitates (nanoscale).",
+        "microstructure": {
+          "sintering_density": null,
+          "grain_size": null,
+          "other": "Oversaturated regions in Heusler matrix; starting point of annealing series. :contentReference[oaicite:15]{index=15}"
+        },
+        "synthesis": {
+          "method": "RF melting; LT short anneal.",
+          "equipment": "",
+          "conditions": "1073 K for 168 h (6.048e5 s), vacuum ≈1e-5 mbar. :contentReference[oaicite:16]{index=16}"
+        },
+        "measurement": {
+          "properties_measured": [
+            "Seebeck coefficient",
+            "electrical resistivity",
+            "thermal conductivity",
+            "figure of merit"
+          ],
+          "methods": "As in common.",
+          "equipment": "",
+          "conditions": ""
+        },
+        "other_factors": "High reported PF previously for this composition due to band engineering; here used to study microstructural evolution. :contentReference[oaicite:17]{index=17}"
+      }
+    },
+    {
+      "sample_name": "Fe2V0.95Ta0.05Al0.9Si0.1 (HT short)",
+      "crystal_structure": "Full-Heusler matrix + small, evenly dispersed punctiform precipitates.",
+      "parent_composition": {
+        "formula_text": "Fe2V0.95Ta0.05Al0.9Si0.1",
+        "molar_composition": "Fe:2; V:0.95; Ta:0.05; Al:0.9; Si:0.1"
+      },
+      "sample_composition": {
+        "starting_composition": "Nominal Fe2V0.95Ta0.05Al0.9Si0.1",
+        "target_composition": "Fe2V0.95Ta0.05Al0.9Si0.1",
+        "analyzed_composition": ""
+      },
+      "molar_composition": {
+        "starting": "Fe:2; V:0.95; Ta:0.05; Al:0.9; Si:0.1",
+        "target": "Fe:2; V:0.95; Ta:0.05; Al:0.9; Si:0.1",
+        "analyzed": ""
+      },
+      "appears_in": ["Fig.5b", "Fig.6a", "Fig.6b", "Fig.6c", "Fig.6d"],
+      "sample_specific": {
+        "morphology": "Evenly dispersed nanoscale precipitates.",
+        "microstructure": {
+          "sintering_density": null,
+          "grain_size": null,
+          "other": "Effective phonon scattering; lowest λ(T) across range among conditions. :contentReference[oaicite:18]{index=18}"
+        },
+        "synthesis": {
+          "method": "LT short followed by high-T anneals.",
+          "equipment": "",
+          "conditions": "Post-LT: 1373 K for 48 h (1.728e5 s) + 1273 K for 120 h (4.32e5 s); total ageing 336 h (1.2096e6 s). :contentReference[oaicite:19]{index=19}"
+        },
+        "measurement": {
+          "properties_measured": [
+            "Seebeck coefficient",
+            "electrical resistivity",
+            "thermal conductivity",
+            "figure of merit"
+          ],
+          "methods": "",
+          "equipment": "",
+          "conditions": ""
+        },
+        "other_factors": "ZT≈0.3–0.34 at 300 K; PF remains high (~7 mW m^-1 K^-2) while λ reduced. :contentReference[oaicite:20]{index=20}"
+      }
+    },
+    {
+      "sample_name": "Fe2V0.95Ta0.05Al0.9Si0.1 (LT long)",
+      "crystal_structure": "Full-Heusler matrix with dendrite-like/lamellar secondary phase (coarser).",
+      "parent_composition": {
+        "formula_text": "Fe2V0.95Ta0.05Al0.9Si0.1",
+        "molar_composition": "Fe:2; V:0.95; Ta:0.05; Al:0.9; Si:0.1"
+      },
+      "sample_composition": {
+        "starting_composition": "Nominal Fe2V0.95Ta0.05Al0.9Si0.1",
+        "target_composition": "Fe2V0.95Ta0.05Al0.9Si0.1",
+        "analyzed_composition": ""
+      },
+      "molar_composition": {
+        "starting": "Fe:2; V:0.95; Ta:0.05; Al:0.9; Si:0.1",
+        "target": "Fe:2; V:0.95; Ta:0.05; Al:0.9; Si:0.1",
+        "analyzed": ""
+      },
+      "appears_in": [
+        "Fig.5d",
+        "Fig.5e",
+        "Fig.6a",
+        "Fig.6b",
+        "Fig.6c",
+        "Fig.6d"
+      ],
+      "sample_specific": {
+        "morphology": "Fine lamellar/eutectic-like microstructure with larger precipitates after long anneal.",
+        "microstructure": {
+          "sintering_density": null,
+          "grain_size": null,
+          "other": "λ_300K can reach ~4.1 W m^-1 K^-1 after radiation correction; larger precipitates reduce scattering effectiveness vs HT short. :contentReference[oaicite:21]{index=21}"
+        },
+        "synthesis": {
+          "method": "LT short followed by extended LT anneal.",
+          "equipment": "",
+          "conditions": "Additional 744 h (2.6784e6 s) at 1073 K; total 912 h (3.2832e6 s). :contentReference[oaicite:22]{index=22}"
+        },
+        "measurement": {
+          "properties_measured": [
+            "Seebeck coefficient",
+            "electrical resistivity",
+            "thermal conductivity",
+            "figure of merit"
+          ],
+          "methods": "",
+          "equipment": "",
+          "conditions": ""
+        },
+        "other_factors": "Transport indicates metallic-like contribution from secondary phase; maxima in S(T), ρ(T) shift to higher T. :contentReference[oaicite:23]{index=23}"
+      }
+    },
+    {
+      "sample_name": "Fe2V1−xTaxAl (x=0.15 and 0.20)",
+      "crystal_structure": "Full-Heusler matrix with increased Fe2Ta-type secondary phase fraction.",
+      "parent_composition": {
+        "formula_text": "Fe2V1−xTaxAl (x=0.15, 0.20)",
+        "molar_composition": "Fe:2; V:(1−x); Ta:x; Al:1"
+      },
+      "sample_composition": {
+        "starting_composition": "Nominal Fe2V0.85Ta0.15Al; Fe2V0.8Ta0.2Al",
+        "target_composition": "Fe2V0.85Ta0.15Al; Fe2V0.8Ta0.2Al",
+        "analyzed_composition": "Heusler matrix approx. (x=0.15) Fe1.952V0.844Ta0.068Al1.136; (x=0.20) Fe1.944V0.844Ta0.072Al1.140 (EDX)"
+      },
+      "molar_composition": {
+        "starting": "Fe:2; V:0.85/0.8; Ta:0.15/0.2; Al:1",
+        "target": "Fe:2; V:0.85/0.8; Ta:0.15/0.2; Al:1",
+        "analyzed": "Fe:1.952; V:0.844; Ta:0.068; Al:1.136 / Fe:1.944; V:0.844; Ta:0.072; Al:1.140"
+      },
+      "appears_in": ["Fig.3b", "Fig.3c", "Fig.1a", "Fig.4"],
+      "sample_specific": {
+        "morphology": "More secondary phase with dendrite/lamella-like morphology at higher Ta.",
+        "microstructure": {
+          "sintering_density": null,
+          "grain_size": null,
+          "other": "EDX shows Ta content in matrix saturates near ~0.07; excess Ta forms secondary phase. :contentReference[oaicite:24]{index=24}"
+        },
+        "synthesis": {
+          "method": "RF melting; standard anneal.",
+          "equipment": "",
+          "conditions": "1073 K for 168 h (6.048e5 s), vacuum ≈1e-5 mbar. :contentReference[oaicite:25]{index=25}"
+        },
+        "measurement": {
+          "properties_measured": [
+            "lattice parameter",
+            "microstructure",
+            "composition"
+          ],
+          "methods": "XRD; SEM/EDX.",
+          "equipment": "",
+          "conditions": ""
+        },
+        "other_factors": "Supports solubility limit x≈0.073 in Fe2V1−xTaxAl (y=0). :contentReference[oaicite:26]{index=26}"
+      }
+    }
+  ],
+  "provenance": {
+    "extraction_method": "manual",
+    "annotator": "",
+    "date": "2025-09-08"
+  }
+}
